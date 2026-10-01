@@ -38,7 +38,12 @@ paths:
         - $ref: '#/components/parameters/birthdate'
         - $ref: '#/components/parameters/svcimpact'
       responses:
-        '200': { $ref: '#/components/responses/BioAdmNsiSuccess' }
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BioAdmNsiResponse'
         '401': { $ref: '#/components/responses/Unauthorized' }
         '404': { $ref: '#/components/responses/NotFound' }
   /edurec/biodata/v1/basic:
@@ -53,7 +58,12 @@ paths:
         - $ref: '#/components/parameters/activef'
         - $ref: '#/components/parameters/crse_cd'
       responses:
-        '200': { $ref: '#/components/responses/BioBasicSuccess' }
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BioBasicResponse'
         '401': { $ref: '#/components/responses/Unauthorized' }
         '404': { $ref: '#/components/responses/NotFound' }
   /edurec/biodata/v1/contact:
@@ -69,7 +79,12 @@ paths:
         - $ref: '#/components/parameters/crse_cd'
         - $ref: '#/components/parameters/officialnm'
       responses:
-        '200': { $ref: '#/components/responses/BioContactSuccess' }
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BioContactResponse'
         '401': { $ref: '#/components/responses/Unauthorized' }
         '404': { $ref: '#/components/responses/NotFound' }
   /edurec/biodata/v1/detail:
@@ -84,7 +99,12 @@ paths:
         - $ref: '#/components/parameters/activef'
         - $ref: '#/components/parameters/crse_cd'
       responses:
-        '200': { $ref: '#/components/responses/BioDetailSuccess' }
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BioDetailResponse'
         '401': { $ref: '#/components/responses/Unauthorized' }
         '404': { $ref: '#/components/responses/NotFound' }
   /edurec/biodata/v1/detail/restricted:
@@ -99,7 +119,12 @@ paths:
         - $ref: '#/components/parameters/activef'
         - $ref: '#/components/parameters/crse_cd'
       responses:
-        '200': { $ref: '#/components/responses/BioDetailRestrictedSuccess' }
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BioDetailRestrictedResponse'
         '401': { $ref: '#/components/responses/Unauthorized' }
         '404': { $ref: '#/components/responses/NotFound' }
   /edurec/biodata/v1/idmap:
@@ -111,7 +136,12 @@ paths:
       parameters:
         - $ref: '#/components/parameters/emplid'
       responses:
-        '200': { $ref: '#/components/responses/BioIdMapSuccess' }
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BioIdMapResponse'
         '401': { $ref: '#/components/responses/Unauthorized' }
         '404': { $ref: '#/components/responses/NotFound' }
   /edurec/biodata/v1/nid:
@@ -127,7 +157,12 @@ paths:
         - $ref: '#/components/parameters/crse_cd'
         - $ref: '#/components/parameters/officialnm'
       responses:
-        '200': { $ref: '#/components/responses/BioNidSuccess' }
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BioNidResponse'
         '401': { $ref: '#/components/responses/Unauthorized' }
         '404': { $ref: '#/components/responses/NotFound' }
   /edurec/biodata/v1/si:
@@ -143,7 +178,12 @@ paths:
         - $ref: '#/components/parameters/crse_cd'
         - $ref: '#/components/parameters/svcimpact'
       responses:
-        '200': { $ref: '#/components/responses/BioNsiSuccess' }
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BioNsiResponse'
         '401': { $ref: '#/components/responses/Unauthorized' }
         '404': { $ref: '#/components/responses/NotFound' }
   /edurec/biodata/v1/tmpstf:
@@ -156,7 +196,12 @@ paths:
         - $ref: '#/components/parameters/offlname'
         - $ref: '#/components/parameters/emplid'
       responses:
-        '200': { $ref: '#/components/responses/BioTempStaffSuccess' }
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BioTempStaffResponse'
         '401': { $ref: '#/components/responses/Unauthorized' }
         '404': { $ref: '#/components/responses/NotFound' }
 components:
