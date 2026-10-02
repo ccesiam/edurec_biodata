@@ -1,0 +1,1232 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "EduRec - BioData API Services",
+    "version": "1.0",
+    "description": "This is the Boomi API documentation for the EduRec - BioData API Service.\n\n### History\n\n| Version | Author | Date | Changes |\n| --- | --- | --- | --- |\n| 1.0 | [Shyamkumar Sukumaran](mailto:shyam@nus.edu.sg) | 04 Sept 2026 | Initial API documentation |\n",
+    "x-boomi-branch": "main"
+  },
+  "security": [
+    {
+      "apiKeyAuth": [],
+      "appKeyAuth": []
+    }
+  ],
+  "servers": [
+    {
+      "url": "https://nus-test-broker.boomi.cloud:8077/ws/rest/test/",
+      "description": "Boomi Test server"
+    },
+    {
+      "url": "https://nus-test-broker.boomi.cloud:8077/ws/rest/qat/",
+      "description": "Boomi QAT server"
+    },
+    {
+      "url": "https://nus-prod-broker.boomi.cloud:8077/ws/rest/",
+      "description": "Boomi Prod server"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Bio Data",
+      "description": "EduRec biographical data services."
+    }
+  ],
+  "paths": {
+    "/edurec/biodata/v1/adsi": {
+      "get": {
+        "tags": [
+          "Bio Data"
+        ],
+        "operationId": "getBioAdmNsi",
+        "summary": "Get Bio ADM NSI",
+        "x-boomi-process": "[WSS] EduRec-Bio-001 - Bio - Get Bio ADM NSI",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/natid"
+          },
+          {
+            "$ref": "#/components/parameters/offlname"
+          },
+          {
+            "$ref": "#/components/parameters/sex"
+          },
+          {
+            "$ref": "#/components/parameters/birthdate"
+          },
+          {
+            "$ref": "#/components/parameters/svcimpact"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/BioAdmNsiSuccess"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      }
+    },
+    "/edurec/biodata/v1/basic": {
+      "get": {
+        "tags": [
+          "Bio Data"
+        ],
+        "operationId": "getBioBasic",
+        "summary": "Get Bio Basic",
+        "x-boomi-process": "[WSS] EduRec-Bio-002 - Bio - Get Bio Basic",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/term"
+          },
+          {
+            "$ref": "#/components/parameters/emplid"
+          },
+          {
+            "$ref": "#/components/parameters/activef"
+          },
+          {
+            "$ref": "#/components/parameters/crse_cd"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/BioBasicSuccess"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      }
+    },
+    "/edurec/biodata/v1/contact": {
+      "get": {
+        "tags": [
+          "Bio Data"
+        ],
+        "operationId": "getBioContact",
+        "summary": "Get Bio Contact",
+        "x-boomi-process": "[WSS] EduRec-Bio-003 - Bio - Get Bio Contact",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/term"
+          },
+          {
+            "$ref": "#/components/parameters/emplid"
+          },
+          {
+            "$ref": "#/components/parameters/activef"
+          },
+          {
+            "$ref": "#/components/parameters/crse_cd"
+          },
+          {
+            "$ref": "#/components/parameters/officialnm"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/BioContactSuccess"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      }
+    },
+    "/edurec/biodata/v1/detail": {
+      "get": {
+        "tags": [
+          "Bio Data"
+        ],
+        "operationId": "getBioDetail",
+        "summary": "Get Bio Detail",
+        "x-boomi-process": "[WSS] EduRec-Bio-004 - Bio - Get Bio Detail",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/term"
+          },
+          {
+            "$ref": "#/components/parameters/emplid"
+          },
+          {
+            "$ref": "#/components/parameters/activef"
+          },
+          {
+            "$ref": "#/components/parameters/crse_cd"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/BioDetailSuccess"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      }
+    },
+    "/edurec/biodata/v1/detail/restricted": {
+      "get": {
+        "tags": [
+          "Bio Data"
+        ],
+        "operationId": "getBioDetailRestricted",
+        "summary": "Get Bio Detail Restricted",
+        "x-boomi-process": "[WSS] EduRec-Bio-009 - Bio - Get Bio Detail Restricted",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/term"
+          },
+          {
+            "$ref": "#/components/parameters/emplid"
+          },
+          {
+            "$ref": "#/components/parameters/activef"
+          },
+          {
+            "$ref": "#/components/parameters/crse_cd"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/BioDetailRestrictedSuccess"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      }
+    },
+    "/edurec/biodata/v1/idmap": {
+      "get": {
+        "tags": [
+          "Bio Data"
+        ],
+        "operationId": "getBioIdMap",
+        "summary": "Get Bio ID Map",
+        "x-boomi-process": "[WSS] EduRec-Bio-005 - Bio - Get Bio ID Map",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/emplid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/BioIdMapSuccess"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      }
+    },
+    "/edurec/biodata/v1/nid": {
+      "get": {
+        "tags": [
+          "Bio Data"
+        ],
+        "operationId": "getBioNid",
+        "summary": "Get Bio NID",
+        "x-boomi-process": "[WSS] EduRec-Bio-006 - Bio - Get Bio NID",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/term"
+          },
+          {
+            "$ref": "#/components/parameters/emplid"
+          },
+          {
+            "$ref": "#/components/parameters/activef"
+          },
+          {
+            "$ref": "#/components/parameters/crse_cd"
+          },
+          {
+            "$ref": "#/components/parameters/officialnm"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/BioNidSuccess"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      }
+    },
+    "/edurec/biodata/v1/si": {
+      "get": {
+        "tags": [
+          "Bio Data"
+        ],
+        "operationId": "getBioNsi",
+        "summary": "Get Bio NSI",
+        "x-boomi-process": "[WSS] EduRec-Bio-007 - Bio - Get Bio NSI",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/emplid"
+          },
+          {
+            "$ref": "#/components/parameters/term"
+          },
+          {
+            "$ref": "#/components/parameters/activef"
+          },
+          {
+            "$ref": "#/components/parameters/crse_cd"
+          },
+          {
+            "$ref": "#/components/parameters/svcimpact"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/BioNsiSuccess"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      }
+    },
+    "/edurec/biodata/v1/tmpstf": {
+      "get": {
+        "tags": [
+          "Bio Data"
+        ],
+        "operationId": "getBioTempStaff",
+        "summary": "Get Bio Temp Staff",
+        "x-boomi-process": "[WSS] EduRec-Bio-008 - Bio - Get Bio Temp Staff",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/offlname"
+          },
+          {
+            "$ref": "#/components/parameters/emplid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/BioTempStaffSuccess"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "apiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-API-KEY",
+        "description": "Enter the X-API-KEY value."
+      },
+      "appKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-APP-KEY",
+        "description": "Enter the X-APP-KEY value."
+      }
+    },
+    "schemas": {
+      "BioAdmNsiResponse": {
+        "type": "object",
+        "properties": {
+          "msg": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "StudentID": {
+                  "type": "string"
+                },
+                "CampusID": {
+                  "type": "string"
+                },
+                "StudentName": {
+                  "type": "string"
+                },
+                "ServiceXref": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "SrvcIndDttm": {
+                        "type": "string"
+                      },
+                      "SrvcIndCD": {
+                        "type": "string"
+                      },
+                      "SrvcIndDescr": {
+                        "type": "string"
+                      },
+                      "SrvcIndReason": {
+                        "type": "string"
+                      },
+                      "SrvcIndReasonDescr": {
+                        "type": "string"
+                      },
+                      "ServiceImpact": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "ServiceImpact": {
+                              "type": "string"
+                            },
+                            "ServiceImpactDescr": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "ts": {
+            "type": "string"
+          }
+        }
+      },
+      "BioTempStaffResponse": {
+        "type": "object",
+        "properties": {
+          "msg": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "AcadOrganisationDescription": {
+                  "type": "string"
+                },
+                "AcademicOrganisation": {
+                  "type": "string"
+                },
+                "ExpiryDate": {
+                  "type": "string",
+                  "nullable": true
+                },
+                "FirstName": {
+                  "type": "string"
+                },
+                "FullName": {
+                  "type": "string"
+                },
+                "Gender": {
+                  "type": "string"
+                },
+                "Id": {
+                  "type": "string"
+                },
+                "LastName": {
+                  "type": "string"
+                },
+                "OfficialEmail": {
+                  "type": "string"
+                },
+                "Salutation": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "ts": {
+            "type": "string"
+          }
+        }
+      },
+      "BioNsiResponse": {
+        "type": "object",
+        "properties": {
+          "msg": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "FullName": {
+                  "type": "string"
+                },
+                "Id": {
+                  "type": "string"
+                },
+                "OldId": {
+                  "type": "string"
+                },
+                "ServiceIndicatorGroup": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "SvcIndicatorDateTime": {
+                        "type": "string"
+                      },
+                      "SvcIndicatorReasonDesc": {
+                        "type": "string"
+                      },
+                      "SvcIndicatorDescription": {
+                        "type": "string"
+                      },
+                      "SvcImpactGroup": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "ImpactDescription": {
+                              "type": "string"
+                            },
+                            "ImpactCode": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      },
+                      "SvcIndicatorCode": {
+                        "type": "string"
+                      },
+                      "SvcIndicatorReason": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "ts": {
+            "type": "string"
+          }
+        }
+      },
+      "BioNidResponse": {
+        "type": "object",
+        "properties": {
+          "msg": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "Birthdate": {
+                  "type": "string"
+                },
+                "CitizenPassport": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "PassportNbr": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "Code": {
+                  "type": "string"
+                },
+                "ConsentFlag": {
+                  "type": "string",
+                  "nullable": true
+                },
+                "Country": {
+                  "type": "string"
+                },
+                "CountryCode": {
+                  "type": "string"
+                },
+                "FullName": {
+                  "type": "string"
+                },
+                "Id": {
+                  "type": "string"
+                },
+                "OldId": {
+                  "type": "string",
+                  "nullable": true
+                }
+              }
+            }
+          },
+          "ts": {
+            "type": "string"
+          }
+        }
+      },
+      "BioIdMapResponse": {
+        "type": "object",
+        "properties": {
+          "msg": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "Id": {
+                  "type": "string"
+                },
+                "OldId": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "ts": {
+            "type": "string"
+          }
+        }
+      },
+      "BioDetailRestrictedResponse": {
+        "type": "object",
+        "properties": {
+          "msg": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "AddressGroup": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "Description": {
+                        "type": "string"
+                      },
+                      "CountryCode": {
+                        "type": "string"
+                      },
+                      "Address1": {
+                        "type": "string"
+                      },
+                      "Address2": {
+                        "type": "string"
+                      },
+                      "Address3": {
+                        "type": "string"
+                      },
+                      "Address4": {
+                        "type": "string"
+                      },
+                      "PostalCode": {
+                        "type": "string"
+                      },
+                      "Type": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "BirthCountry": {
+                  "type": "string"
+                },
+                "BirthCountryCode": {
+                  "type": "string"
+                },
+                "Birthdate": {
+                  "type": "string"
+                },
+                "CITI_PP": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "PassportNbr": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "Citizenship": {
+                  "type": "string"
+                },
+                "ConsentFlag": {
+                  "type": "string"
+                },
+                "CountryCode": {
+                  "type": "string"
+                },
+                "FullName": {
+                  "type": "string"
+                },
+                "Gender": {
+                  "type": "string"
+                },
+                "Id": {
+                  "type": "string",
+                  "nullable": true
+                },
+                "OfficialEmail": {
+                  "type": "string"
+                },
+                "OldId": {
+                  "type": "string"
+                },
+                "PhoneGroup": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "ContactNumber": {
+                        "type": "string"
+                      },
+                      "Type": {
+                        "type": "string"
+                      },
+                      "Description": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "ReligiousPref": {
+                  "type": "string"
+                },
+                "Salutation": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "ts": {
+            "type": "string"
+          }
+        }
+      },
+      "BioContactResponse": {
+        "type": "object",
+        "properties": {
+          "msg": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "AddressGroup": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "Description": {
+                        "type": "string"
+                      },
+                      "CountryCode": {
+                        "type": "string"
+                      },
+                      "Address1": {
+                        "type": "string"
+                      },
+                      "Address2": {
+                        "type": "string"
+                      },
+                      "Address3": {
+                        "type": "string"
+                      },
+                      "Address4": {
+                        "type": "string"
+                      },
+                      "Country": {
+                        "type": "string"
+                      },
+                      "PostalCode": {
+                        "type": "string"
+                      },
+                      "Type": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "ConsentFlag": {
+                  "type": "string"
+                },
+                "FullName": {
+                  "type": "string"
+                },
+                "Id": {
+                  "type": "string"
+                },
+                "OfficialEmail": {
+                  "type": "string"
+                },
+                "OldId": {
+                  "type": "string"
+                },
+                "PhoneGroup": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "ContactNumber": {
+                        "type": "string"
+                      },
+                      "Type": {
+                        "type": "string"
+                      },
+                      "Description": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "ts": {
+            "type": "string"
+          }
+        }
+      },
+      "BioBasicResponse": {
+        "type": "object",
+        "properties": {
+          "msg": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "ConsentFlag": {
+                  "type": "string",
+                  "nullable": true
+                },
+                "FullName": {
+                  "type": "string"
+                },
+                "Gender": {
+                  "type": "string"
+                },
+                "Id": {
+                  "type": "string"
+                },
+                "OfficialEmail": {
+                  "type": "string"
+                },
+                "OldId": {
+                  "type": "string",
+                  "nullable": true
+                }
+              }
+            }
+          },
+          "ts": {
+            "type": "string"
+          }
+        }
+      },
+      "BioDetailResponse": {
+        "type": "object",
+        "properties": {
+          "msg": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "AddressGroup": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "Description": {
+                        "type": "string"
+                      },
+                      "CountryCode": {
+                        "type": "string"
+                      },
+                      "Address1": {
+                        "type": "string"
+                      },
+                      "Address2": {
+                        "type": "string"
+                      },
+                      "Address3": {
+                        "type": "string"
+                      },
+                      "Address4": {
+                        "type": "string"
+                      },
+                      "PostalCode": {
+                        "type": "string"
+                      },
+                      "Type": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "BirthCountry": {
+                  "type": "string"
+                },
+                "BirthCountryCode": {
+                  "type": "string"
+                },
+                "Birthdate": {
+                  "type": "string"
+                },
+                "CITI_PP": {
+                  "type": "array",
+                  "nullable": true,
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": true
+                  }
+                },
+                "Citizenship": {
+                  "type": "string"
+                },
+                "ConsentFlag": {
+                  "type": "string",
+                  "nullable": true
+                },
+                "CountryCode": {
+                  "type": "string"
+                },
+                "FullName": {
+                  "type": "string"
+                },
+                "Gender": {
+                  "type": "string"
+                },
+                "Id": {
+                  "type": "string"
+                },
+                "OfficialEmail": {
+                  "type": "string"
+                },
+                "OldId": {
+                  "type": "string"
+                },
+                "PhoneGroup": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "ContactNumber": {
+                        "type": "string"
+                      },
+                      "Type": {
+                        "type": "string"
+                      },
+                      "Description": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "Residency": {
+                  "type": "string"
+                },
+                "Salutation": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "ts": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "parameters": {
+      "natid": {
+        "name": "natid",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "offlname": {
+        "name": "offlname",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "sex": {
+        "name": "sex",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "birthdate": {
+        "name": "birthdate",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "svcimpact": {
+        "name": "svcimpact",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "term": {
+        "name": "term",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "emplid": {
+        "name": "emplid",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "activef": {
+        "name": "activef",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "crse_cd": {
+        "name": "crse_cd",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "officialnm": {
+        "name": "officialnm",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    },
+    "responses": {
+      "BioAdmNsiSuccess": {
+        "description": "Successful response.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/BioAdmNsiResponse"
+            },
+            "example": "{\n  \"msg\": \"Success\",\n  \"code\": \"200\",\n  \"data\": [\n    {\n      \"StudentID\": \"A0034562L\",\n      \"CampusID\": \"U068496U\",\n      \"StudentName\": \"034562L, Name\",\n      \"ServiceXref\": [\n        {\n          \"SrvcIndDttm\": \"2013-10-28T16:37:13+08:00\",\n          \"SrvcIndCD\": \"AD2\",\n          \"SrvcIndDescr\": \"Blacklist Future Application\",\n          \"SrvcIndReason\": \"FORGE\",\n          \"SrvcIndReasonDescr\": \"Forged Documents\",\n          \"ServiceImpact\": [\n            {\n              \"ServiceImpact\": \"CADM\",\n              \"ServiceImpactDescr\": \"Cannot be admitted/re-admitted\"\n            }\n          ]\n        }\n      ]\n    }\n  ],\n  \"ts\": \"20260904144801\"\n}\n"
+          }
+        }
+      },
+      "BioTempStaffSuccess": {
+        "description": "Successful response.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/BioTempStaffResponse"
+            },
+            "example": "{\n  \"msg\": \"Success\",\n  \"code\": \"200\",\n  \"data\": [\n    {\n      \"AcadOrganisationDescription\": \"SoC Dean's Office\",\n      \"AcademicOrganisation\": \"00300ACAD1\",\n      \"ExpiryDate\": null,\n      \"FirstName\": \"000000005, Name\",\n      \"FullName\": \"000000005, Name\",\n      \"Gender\": \"U\",\n      \"Id\": \"T0000000005\",\n      \"LastName\": \"000000005, Name\",\n      \"OfficialEmail\": \"T0000000005test@nustest.edu.sg\",\n      \"Salutation\": \"Prof\"\n    },\n    {\n      \"AcadOrganisationDescription\": \"SoC Dean's Office\",\n      \"AcademicOrganisation\": \"00300ACAD1\",\n      \"ExpiryDate\": null,\n      \"FirstName\": \"000000005, Name\",\n      \"FullName\": \"000000005, Name\",\n      \"Gender\": \"U\",\n      \"Id\": \"T0000000005\",\n      \"LastName\": \"000000005, Name\",\n      \"OfficialEmail\": \"T0000000005test@nustest.edu.sg\",\n      \"Salutation\": \"Prof\"\n    }\n  ],\n  \"ts\": \"20260904144801\"\n}\n"
+          }
+        }
+      },
+      "BioNsiSuccess": {
+        "description": "Successful response.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/BioNsiResponse"
+            },
+            "example": "{\n  \"msg\": \"ok\",\n  \"code\": \"00000\",\n  \"data\": [\n    {\n      \"FullName\": \"000066B, Name\",\n      \"Id\": \"A0000066B\",\n      \"OldId\": \"U075945H\",\n      \"ServiceIndicatorGroup\": [\n        {\n          \"SvcIndicatorDateTime\": \"2020-05-29T12:24:39+08:00\",\n          \"SvcIndicatorReasonDesc\": \"Admission (OAM)\",\n          \"SvcIndicatorDescription\": \"Admission related (OAM)\",\n          \"SvcImpactGroup\": [\n            {\n              \"ImpactDescription\": \"Block All Enrollment Actvty\",\n              \"ImpactCode\": \"CENR\"\n            },\n            {\n              \"ImpactDescription\": \"Cannot View Exam Results\",\n              \"ImpactCode\": \"CEXAM\"\n            },\n            {\n              \"ImpactDescription\": \"No Official Transcript\",\n              \"ImpactCode\": \"NOTR\"\n            },\n            {\n              \"ImpactDescription\": \"No Unofficial Transcript\",\n              \"ImpactCode\": \"NUTR\"\n            }\n          ],\n          \"SvcIndicatorCode\": \"AD1\",\n          \"SvcIndicatorReason\": \"ADM\"\n        }\n      ]\n    }\n  ],\n  \"ts\": \"20260904144801\"\n}\n"
+          }
+        }
+      },
+      "BioNidSuccess": {
+        "description": "Successful response.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/BioNidResponse"
+            },
+            "example": "{\n  \"msg\": \"ok\",\n  \"code\": \"00000\",\n  \"data\": [\n    {\n      \"Birthdate\": \"01/01/1905\",\n      \"CitizenPassport\": [\n        {\n          \"PassportNbr\": \"K31****\"\n        }\n      ],\n      \"Code\": \"SC\",\n      \"ConsentFlag\": null,\n      \"Country\": \"Singapore\",\n      \"CountryCode\": \"SGP\",\n      \"FullName\": \"202871L, Name\",\n      \"Id\": \"S7943435C\",\n      \"OldId\": null\n    }\n  ],\n  \"ts\": \"20260904144801\"\n}\n"
+          }
+        }
+      },
+      "BioIdMapSuccess": {
+        "description": "Successful response.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/BioIdMapResponse"
+            },
+            "example": "{\n  \"msg\": \"ok\",\n  \"code\": \"00000\",\n  \"data\": [\n    {\n      \"Id\": \"A0000066B\",\n      \"OldId\": \"U075945H\"\n    }\n  ],\n  \"ts\": \"20260904144801\"\n}\n"
+          }
+        }
+      },
+      "BioDetailRestrictedSuccess": {
+        "description": "Successful response.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/BioDetailRestrictedResponse"
+            },
+            "example": "{\n  \"msg\": \"ok\",\n  \"code\": \"00000\",\n  \"data\": [\n    {\n      \"AddressGroup\": [\n        {\n          \"Description\": \"Malaysia\",\n          \"CountryCode\": \"MYS\",\n          \"Address1\": \"NNNNNNNNN NNNNNNNNN NNNNN\",\n          \"Address2\": \"NNNNNNNNN NNNNNNNNN NNNNN\",\n          \"Address3\": \"NNNNNNNNN NNNNNNNNN NNNNN\",\n          \"Address4\": \"NNNNNNNNN NNNNNNNNN NNNNN\",\n          \"PostalCode\": \"000000\",\n          \"Type\": \"HOME\"\n        },\n        {\n          \"Description\": \"Malaysia\",\n          \"CountryCode\": \"MYS\",\n          \"Address1\": \"NNNNNNNNN NNNNNNNNN NNNNN\",\n          \"Address2\": \"NNNNNNNNN NNNNNNNNN NNNNN\",\n          \"Address3\": \"NNNNNNNNN NNNNNNNNN NNNNN\",\n          \"Address4\": \"NNNNNNNNN NNNNNNNNN NNNNN\",\n          \"PostalCode\": \"000000\",\n          \"Type\": \"MAIL\"\n        }\n      ],\n      \"BirthCountry\": \"MYS\",\n      \"BirthCountryCode\": \"Malaysia\",\n      \"Birthdate\": \"01/01\",\n      \"CITI_PP\": [\n        {\n          \"PassportNbr\": \"A13****\"\n        }\n      ],\n      \"Citizenship\": \"Malaysia\",\n      \"ConsentFlag\": \"N\",\n      \"CountryCode\": \"MYS\",\n      \"FullName\": \"022033E, Name\",\n      \"Gender\": \"M\",\n      \"Id\": null,\n      \"OfficialEmail\": \"A0022033Etest@nustest.edu.sg\",\n      \"OldId\": \"U048644N\",\n      \"PhoneGroup\": [\n        {\n          \"ContactNumber\": \"80000000\",\n          \"Type\": \"CELL\",\n          \"Description\": \"Mobile(S)\"\n        },\n        {\n          \"ContactNumber\": \"60000000\",\n          \"Type\": \"HOME\",\n          \"Description\": \"Home\"\n        },\n        {\n          \"ContactNumber\": \"60000000\",\n          \"Type\": \"TERM\",\n          \"Description\": \"TermCntact\"\n        }\n      ],\n      \"ReligiousPref\": \"NONE\",\n      \"Salutation\": \"Mr\"\n    }\n  ],\n  \"ts\": \"20260904144801\"\n}\n"
+          }
+        }
+      },
+      "BioContactSuccess": {
+        "description": "Successful response.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/BioContactResponse"
+            },
+            "example": "{\n  \"msg\": \"ok\",\n  \"code\": \"00000\",\n  \"data\": [\n    {\n      \"AddressGroup\": [\n        {\n          \"Description\": \"Home\",\n          \"CountryCode\": \"SGP\",\n          \"Address1\": \"NNNNNNNNN NNNNNNNNN NNNNN\",\n          \"Address2\": \"NNNNNNNNN NNNNNNNNN NNNNN\",\n          \"Address3\": \"NNNNNNNNN NNNNNNNNN NNNNN\",\n          \"Address4\": \"NNNNNNNNN NNNNNNNNN NNNNN\",\n          \"Country\": \"Singapore\",\n          \"PostalCode\": \"000000\",\n          \"Type\": \"HOME\"\n        },\n        {\n          \"Description\": \"Mailing\",\n          \"CountryCode\": \"SGP\",\n          \"Address1\": \"NNNNNNNNN NNNNNNNNN NNNNN\",\n          \"Address2\": \"NNNNNNNNN NNNNNNNNN NNNNN\",\n          \"Address3\": \"NNNNNNNNN NNNNNNNNN NNNNN\",\n          \"Address4\": \"NNNNNNNNN NNNNNNNNN NNNNN\",\n          \"Country\": \"Singapore\",\n          \"PostalCode\": \"000000\",\n          \"Type\": \"MAIL\"\n        }\n      ],\n      \"ConsentFlag\": \"N\",\n      \"FullName\": \"043380N, Name\",\n      \"Id\": \"A0043380N\",\n      \"OfficialEmail\": \"A0043380Ntest@nustest.edu.sg\",\n      \"OldId\": \"U081472R\",\n      \"PhoneGroup\": [\n        {\n          \"ContactNumber\": \"60000000\",\n          \"Type\": \"HOME\",\n          \"Description\": \"Home\"\n        },\n        {\n          \"ContactNumber\": \"80000000\",\n          \"Type\": \"CELL\",\n          \"Description\": \"Mobile(S)\"\n        }\n      ]\n    },\n    {\n      \"AddressGroup\": [\n        {\n          \"Description\": \"Home\",\n          \"CountryCode\": \"SGP\",\n          \"Address1\": \"NNNNNNNNN NNNNNNNNN NNNNN\",\n          \"Address2\": \"NNNNNNNNN NNNNNNNNN NNNNN\",\n          \"Address3\": \"NNNNNNNNN NNNNNNNNN NNNNN\",\n          \"Address4\": \"NNNNNNNNN NNNNNNNNN NNNNN\",\n          \"Country\": \"Singapore\",\n          \"PostalCode\": \"000000\",\n          \"Type\": \"HOME\"\n        },\n        {\n          \"Description\": \"Mailing\",\n          \"CountryCode\": \"SGP\",\n          \"Address1\": \"NNNNNNNNN NNNNNNNNN NNNNN\",\n          \"Address2\": \"NNNNNNNNN NNNNNNNNN NNNNN\",\n          \"Address3\": \"NNNNNNNNN NNNNNNNNN NNNNN\",\n          \"Address4\": \"NNNNNNNNN NNNNNNNNN NNNNN\",\n          \"Country\": \"Singapore\",\n          \"PostalCode\": \"000000\",\n          \"Type\": \"MAIL\"\n        }\n      ],\n      \"ConsentFlag\": \"N\",\n      \"FullName\": \"043380N, Name\",\n      \"Id\": \"A0043380N\",\n      \"OfficialEmail\": \"A0043380Ntest@nustest.edu.sg\",\n      \"OldId\": \"U081472R\",\n      \"PhoneGroup\": [\n        {\n          \"ContactNumber\": \"60000000\",\n          \"Type\": \"HOME\",\n          \"Description\": \"Home\"\n        },\n        {\n          \"ContactNumber\": \"80000000\",\n          \"Type\": \"CELL\",\n          \"Description\": \"Mobile(S)\"\n        }\n      ]\n    }\n  ],\n  \"ts\": \"20260904144801\"\n}\n"
+          }
+        }
+      },
+      "BioBasicSuccess": {
+        "description": "Successful response.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/BioBasicResponse"
+            },
+            "example": "{\n  \"msg\": \"ok\",\n  \"code\": \"00000\",\n  \"data\": [\n    {\n      \"ConsentFlag\": null,\n      \"FullName\": \"031513Y, Name\",\n      \"Gender\": \"F\",\n      \"Id\": \"A0031513Y\",\n      \"OfficialEmail\": \"A0031513YCAMPTEST@nustest.edu.sg\",\n      \"OldId\": null\n    }\n  ],\n  \"ts\": \"20260904144801\"\n}\n"
+          }
+        }
+      },
+      "BioDetailSuccess": {
+        "description": "Successful response.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/BioDetailResponse"
+            },
+            "example": "{\n  \"msg\": \"ok\",\n  \"code\": \"00000\",\n  \"data\": [\n    {\n      \"AddressGroup\": [\n        {\n          \"Description\": \"Singapore\",\n          \"CountryCode\": \"SGP\",\n          \"Address1\": \"NNNNNNNNN NNNNNNNNN NNNNN\",\n          \"Address2\": \"NNNNNNNNN NNNNNNNNN NNNNN\",\n          \"Address3\": \"NNNNNNNNN NNNNNNNNN NNNNN\",\n          \"Address4\": \"NNNNNNNNN NNNNNNNNN NNNNN\",\n          \"PostalCode\": \"000000\",\n          \"Type\": \"HOME\"\n        },\n        {\n          \"Description\": \"Singapore\",\n          \"CountryCode\": \"SGP\",\n          \"Address1\": \"NNNNNNNNN NNNNNNNNN NNNNN\",\n          \"Address2\": \"NNNNNNNNN NNNNNNNNN NNNNN\",\n          \"Address3\": \"NNNNNNNNN NNNNNNNNN NNNNN\",\n          \"Address4\": \"NNNNNNNNN NNNNNNNNN NNNNN\",\n          \"PostalCode\": \"000000\",\n          \"Type\": \"MAIL\"\n        }\n      ],\n      \"BirthCountry\": \"Singapore\",\n      \"BirthCountryCode\": \"SGP\",\n      \"Birthdate\": \"01/01\",\n      \"CITI_PP\": null,\n      \"Citizenship\": \"Singapore\",\n      \"ConsentFlag\": null,\n      \"CountryCode\": \"SGP\",\n      \"FullName\": \"000003U, Name\",\n      \"Gender\": \"M\",\n      \"Id\": \"*****15F\",\n      \"OfficialEmail\": \"A0000003UCAMPTEST@nustest.edu.sg\",\n      \"OldId\": \"U063907J\",\n      \"PhoneGroup\": [\n        {\n          \"ContactNumber\": \"80000000\",\n          \"Type\": \"CELL\",\n          \"Description\": \"Mobile(S)\"\n        },\n        {\n          \"ContactNumber\": \"60000000\",\n          \"Type\": \"HOME\",\n          \"Description\": \"Home\"\n        },\n        {\n          \"ContactNumber\": \"60000000\",\n          \"Type\": \"TERM\",\n          \"Description\": \"TermCntact\"\n        }\n      ],\n      \"Residency\": \"SPR\",\n      \"Salutation\": \"Mr\"\n    }\n  ],\n  \"ts\": \"20260904144801\"\n}\n"
+          }
+        }
+      },
+      "Success": {
+        "description": "Successful response; detailed schema not verified.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "additionalProperties": true
+            },
+            "x-boomi-response-schema": "unverified"
+          }
+        }
+      },
+      "Unauthorized": {
+        "description": "Unauthorized request.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object"
+            },
+            "example": "{\n  \"message\": \"Unauthorized\",\n  \"http_status_code\": 401\n}\n"
+          }
+        }
+      },
+      "NotFound": {
+        "description": "No matching record found.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object"
+            },
+            "example": "{\n  \"msg\": \"No Record Found\",\n  \"code\": \"10001\",\n  \"data\": [],\n  \"ts\": \"20260904150054\"\n}"
+          }
+        }
+      }
+    }
+  }
+}
